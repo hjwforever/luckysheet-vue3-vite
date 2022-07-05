@@ -76,8 +76,8 @@ const loadExcel = (evt) => {
     console.log('exportJson', exportJson)
     jsonData.value = exportJson
 
-    window.luckysheet.destroy()
-
+    window?.luckysheet?.destroy && window.luckysheet.destroy()
+    
     window.luckysheet.create({
       container: 'luckysheet', //luckysheet is the container id
       showinfobar: false,
@@ -105,7 +105,8 @@ const selectExcel = (evt) => {
     jsonData.value = exportJson
 
     isMaskShow.value = false
-    window.luckysheet.destroy()
+
+    window?.luckysheet?.destroy && window.luckysheet.destroy()
 
     window.luckysheet.create({
       container: 'luckysheet', //luckysheet is the container id
