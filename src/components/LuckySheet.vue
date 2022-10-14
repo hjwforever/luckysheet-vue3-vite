@@ -19,7 +19,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { exportExcel } from './export'
+import { exportExcel } from '../utils/export'
+import { isFunction } from '../utils/is'
 import LuckyExcel from 'luckyexcel'
 
 const isMaskShow = ref(false)
@@ -29,29 +30,29 @@ const options = ref([
   { text: 'Money Manager.xlsx', value: 'https://minio.cnbabylon.com/public/luckysheet/money-manager-2.xlsx' },
   {
     text: 'Activity costs tracker.xlsx',
-    value: 'https://minio.cnbabylon.com/public/luckysheet/Activity%20costs%20tracker.xlsx'
+    value: 'https://minio.cnbabylon.com/public/luckysheet/Activity%20costs%20tracker.xlsx',
   },
   {
     text: 'House cleaning checklist.xlsx',
-    value: 'https://minio.cnbabylon.com/public/luckysheet/House%20cleaning%20checklist.xlsx'
+    value: 'https://minio.cnbabylon.com/public/luckysheet/House%20cleaning%20checklist.xlsx',
   },
   {
     text: 'Student assignment planner.xlsx',
-    value: 'https://minio.cnbabylon.com/public/luckysheet/Student%20assignment%20planner.xlsx'
+    value: 'https://minio.cnbabylon.com/public/luckysheet/Student%20assignment%20planner.xlsx',
   },
   {
     text: 'Credit card tracker.xlsx',
-    value: 'https://minio.cnbabylon.com/public/luckysheet/Credit%20card%20tracker.xlsx'
+    value: 'https://minio.cnbabylon.com/public/luckysheet/Credit%20card%20tracker.xlsx',
   },
   { text: 'Blue timesheet.xlsx', value: 'https://minio.cnbabylon.com/public/luckysheet/Blue%20timesheet.xlsx' },
   {
     text: 'Student calendar (Mon).xlsx',
-    value: 'https://minio.cnbabylon.com/public/luckysheet/Student%20calendar%20%28Mon%29.xlsx'
+    value: 'https://minio.cnbabylon.com/public/luckysheet/Student%20calendar%20%28Mon%29.xlsx',
   },
   {
     text: 'Blue mileage and expense report.xlsx',
-    value: 'https://minio.cnbabylon.com/public/luckysheet/Blue%20mileage%20and%20expense%20report.xlsx'
-  }
+    value: 'https://minio.cnbabylon.com/public/luckysheet/Blue%20mileage%20and%20expense%20report.xlsx',
+  },
 ])
 
 const loadExcel = (evt) => {
@@ -76,14 +77,14 @@ const loadExcel = (evt) => {
     console.log('exportJson', exportJson)
     jsonData.value = exportJson
 
-    window?.luckysheet?.destroy && window.luckysheet.destroy()
-    
+    isFunction(window?.luckysheet?.destroy) && window.luckysheet.destroy()
+
     window.luckysheet.create({
       container: 'luckysheet', //luckysheet is the container id
       showinfobar: false,
       data: exportJson.sheets,
       title: exportJson.info.name,
-      userInfo: exportJson.info.name.creator
+      userInfo: exportJson.info.name.creator,
     })
   })
 }
@@ -106,14 +107,14 @@ const selectExcel = (evt) => {
 
     isMaskShow.value = false
 
-    window?.luckysheet?.destroy && window.luckysheet.destroy()
+    isFunction(window?.luckysheet?.destroy) && window.luckysheet.destroy()
 
     window.luckysheet.create({
       container: 'luckysheet', //luckysheet is the container id
       showinfobar: false,
       data: exportJson.sheets,
       title: exportJson.info.name,
-      userInfo: exportJson.info.name.creator
+      userInfo: exportJson.info.name.creator,
     })
   })
 }
@@ -139,12 +140,12 @@ const downloadExcel = () => {
 // !!! create luckysheet after mounted
 onMounted(() => {
   luckysheet.create({
-    container: 'luckysheet'
+    container: 'luckysheet',
   })
 })
 </script>
 
-<style  scoped>
+<style scoped>
 #luckysheet {
   margin: 0px;
   padding: 0px;
