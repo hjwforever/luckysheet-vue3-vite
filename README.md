@@ -15,7 +15,7 @@ This is a simple project that shows the use of [Luckysheet](https://github.com/m
 ## Note
   1. In addition to the need to install the dependencies of [luckyexcel](https://www.npmjs.com/package/luckyexcel), you also need to introduce the style files and js files of `LuckySheet`.
    - import `LuckySheet` globally: Import related files directly from the cdn source in [index.html](./index.html).
-   - For more importing solutions, please refer to the [official documentation](https://mengshukeji.github.io/LuckysheetDocs/guide/#steps-for-usage).
+   - For more importing solutions, please refer to the [official Luckysheet Docs](https://dream-num.github.io/LuckysheetDocs/guide/#guide).
   2. The core code is in [src/components/LuckySheet.vue](./src/components/LuckySheet.vue)
 
 ## Development

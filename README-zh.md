@@ -15,7 +15,7 @@
 ## 注意
   1. 除了需要安装[luckyexcel](https://www.npmjs.com/package/luckyexcel)的依赖，还需要引入`LuckySheet`的样式文件和js文件。
       - 全局引入`LuckySheet`： 在[index.html](./index.html)中从cdn源直接引入相关的文件。
-      - 更多引入方式请参照[官方文档](https://mengshukeji.github.io/LuckysheetDocs/guide/#steps-for-usage)。
+      - 更多引入方式请参照[官方文档](https://dream-num.github.io/LuckysheetDocs/zh/guide/#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)。
   2. 关键代码在 [src/components/LuckySheet.vue](./src/components/LuckySheet.vue)。
 
 ## 开发
